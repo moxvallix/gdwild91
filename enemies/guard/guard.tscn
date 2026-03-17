@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cf8xbw8rxqrr5"]
+
+[ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="1_y3myj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3myj"]
+radius = 62.0
+height = 146.0
+
+[node name="Guard" type="CharacterBody2D" unique_id=1764606371]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1894369693]
+texture = ExtResource("1_y3myj")
+
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=80514433]
+shape = SubResource("CapsuleShape2D_y3myj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1810346034]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1739009944]
+polygon = PackedVector2Array(0, 0, 1000, -300, 1000, 300)

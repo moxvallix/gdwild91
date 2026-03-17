@@ -3,6 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://5165ak4dmebc" path="res://player/player.gd" id="1_rkbax"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
+radius = 112.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 40.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 radius = 62.0
 height = 146.0
@@ -13,5 +19,18 @@ script = ExtResource("1_rkbax")
 [node name="Icon" type="Sprite2D" parent="." unique_id=1952238386]
 texture = ExtResource("1_oul6g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1618886121]
+[node name="DetectionZone" type="Area2D" parent="." unique_id=976869740]
+
+[node name="DetectionHitbox" type="CollisionShape2D" parent="DetectionZone" unique_id=821770005]
+shape = SubResource("CircleShape2D_g1dw6")
+debug_color = Color(0.96165186, 0.19863188, 7.70092e-07, 0.41960785)
+
+[node name="InteractionZone" type="Area2D" parent="." unique_id=570206982]
+
+[node name="InteractionHitbox" type="CollisionShape2D" parent="InteractionZone" unique_id=1582845414]
+position = Vector2(90, 0)
+shape = SubResource("CircleShape2D_rkbax")
+debug_color = Color(0.35277343, 0.61929727, 0, 0.41960785)
+
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1618886121]
 shape = SubResource("CapsuleShape2D_oul6g")
