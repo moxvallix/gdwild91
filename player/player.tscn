@@ -13,7 +13,7 @@ radius = 40.0
 radius = 62.0
 height = 146.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1417231954]
+[node name="s" type="CharacterBody2D" unique_id=1417231954]
 script = ExtResource("1_rkbax")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1952238386]
@@ -34,3 +34,5 @@ debug_color = Color(0.35277343, 0.61929727, 0, 0.41960785)
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1618886121]
 shape = SubResource("CapsuleShape2D_oul6g")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=930010415]

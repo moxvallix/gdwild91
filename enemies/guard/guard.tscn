@@ -9,6 +9,7 @@ height = 146.0
 [node name="Guard" type="CharacterBody2D" unique_id=1764606371]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1894369693]
+modulate = Color(0.1060246, 0.47542626, 0, 1)
 texture = ExtResource("1_y3myj")
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=80514433]
