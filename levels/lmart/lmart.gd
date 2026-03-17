@@ -4,10 +4,14 @@ const CHUNK_SIZE = 5
 const MAP_WIDTH = 30
 const MAP_HEIGHT = 20
 
+const CHUNK_LIST = [
+	"res://levels/lmart/chunks/test_1.tscn"
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-	_generate_walls() 
+	#_generate_walls() 
+	_test_load()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +24,39 @@ func _set_debug_cell(x_pos: int, y_pos: int, type: int = 0) -> void:
 		Vector2i(5, 1)
 	]
 	%Floorplan.set_cell(Vector2i(x_pos, y_pos), 0, types[type])
+
+func _test_load() -> void:
+	var chunks: Array[LMartChunk] = [
+		load("res://levels/lmart/chunks/test_1.tscn").instantiate(),
+		load("res://levels/lmart/chunks/test_2.tscn").instantiate(),
+		load("res://levels/lmart/chunks/test_3.tscn").instantiate(),
+	]
+	
+	var width := 30
+	var height := 40
+	var gap := 1
+	
+	var x := 0
+	var y := 0
+	
+	var tallest := 0
+	
+	while y < height:
+		while x < width:
+			var chunk: LMartChunk = chunks.pick_random()
+			var check := chunk.check_valid_spawn(%Floorplan, Vector2i(x, y))
+			if check:
+				chunk.copy_to(%Floorplan, Vector2i(x, y))
+				var size := chunk.get_used_rect().size
+				x += size.x + gap
+				
+				if size.y > tallest:
+					tallest = size.y
+			else:
+				x += 1
+		y += tallest + gap
+		x = 0
+		tallest = 0
 
 func _generate_walls() -> void:
 	var top_left_inset_width := randi() % 2
