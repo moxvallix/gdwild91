@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tlbd75lpylpk" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cf8xbw8rxqrr5" path="res://enemies/guard/guard.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c2gdtmdu85seo" path="res://enemies/guard/guard.gd" id="4_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(121.5, 540)
@@ -17,6 +18,7 @@ position = Vector2(267, 854)
 
 [node name="Guard" parent="." unique_id=1764606371 instance=ExtResource("2_0xm2m")]
 position = Vector2(437, 312)
+script = ExtResource("4_lquwl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1259177311]
 
