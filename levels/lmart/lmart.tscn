@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://dqfd4qf3mhtdu"]
 
 [ext_resource type="Script" uid="uid://chlnc17r0v0yy" path="res://levels/lmart/lmart.gd" id="1_bfwt7"]
-[ext_resource type="TileSet" uid="uid://b7dx2i8csl07o" path="res://levels/lmart/debug_tiles.tres" id="2_6fiid"]
+[ext_resource type="PackedScene" uid="uid://pkxvpf5vlfe" path="res://levels/lmart/chunks/base_chunk.tscn" id="2_6fiid"]
 
 [node name="Lmart" type="Node2D" unique_id=1606753722]
 script = ExtResource("1_bfwt7")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1390074649]
-position = Vector2(2327, 1209)
-zoom = Vector2(0.4, 0.4)
-
-[node name="Tiles" type="Node2D" parent="." unique_id=665918308]
-
-[node name="Floorplan" type="TileMapLayer" parent="Tiles" unique_id=945299626]
+[node name="Tiles" parent="." unique_id=52633447 instance=ExtResource("2_6fiid")]
 unique_name_in_owner = true
-tile_set = ExtResource("2_6fiid")

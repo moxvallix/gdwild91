@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dybr3388frdfm"]
+
+[ext_resource type="PackedScene" uid="uid://tlbd75lpylpk" path="res://player/player.tscn" id="1_0sey2"]
+[ext_resource type="PackedScene" uid="uid://cf8xbw8rxqrr5" path="res://enemies/guard/guard.tscn" id="2_ucy1l"]
+[ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="3_wdg74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a30f0"]
+size = Vector2(121.5, 540)
+
+[node name="Testing" type="Node2D" unique_id=158922226]
+
+[node name="Guard" parent="." unique_id=1764606371 instance=ExtResource("2_ucy1l")]
+position = Vector2(437, 312)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=295031381]
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=884738768]
+position = Vector2(1045, 535.99994)
+scale = Vector2(1, 4.2890625)
+texture = ExtResource("3_wdg74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1996861426]
+position = Vector2(1045.25, 533)
+shape = SubResource("RectangleShape2D_a30f0")
+
+[node name="Player" parent="." unique_id=1417231954 instance=ExtResource("1_0sey2")]
+position = Vector2(604, 901)
