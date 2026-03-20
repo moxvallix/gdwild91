@@ -1,11 +1,14 @@
 extends Node2D
 
 const CHUNK_SIZE = 5
-const MAP_WIDTH = 30
-const MAP_HEIGHT = 20
+const MAP_WIDTH = 80
+const MAP_HEIGHT = 50
 
 const CHUNK_LIST = [
-	"res://levels/lmart/chunks/test_1.tscn"
+	"res://levels/lmart/chunks/test_1.tscn",
+	"res://levels/lmart/chunks/test_2.tscn",
+	"res://levels/lmart/chunks/test_3.tscn",
+	"res://levels/lmart/chunks/test_4.tscn",
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -26,11 +29,8 @@ func _set_debug_cell(x_pos: int, y_pos: int, type: int = 0) -> void:
 	%Floorplan.set_cell(Vector2i(x_pos, y_pos), 0, types[type])
 
 func _test_load() -> void:
-	var chunks: Array[LMartChunk] = [
-		load("res://levels/lmart/chunks/test_1.tscn").instantiate(),
-		load("res://levels/lmart/chunks/test_2.tscn").instantiate(),
-		load("res://levels/lmart/chunks/test_3.tscn").instantiate(),
-	]
+	var chunks: Array = CHUNK_LIST.map(func(path): return load(path).instantiate())
+	chunks.map(func(chunk): chunk._ready())
 	
 	var width := 30
 	var height := 40
@@ -44,10 +44,11 @@ func _test_load() -> void:
 	while y < height:
 		while x < width:
 			var chunk: LMartChunk = chunks.pick_random()
-			var check := chunk.check_valid_spawn(%Floorplan, Vector2i(x, y))
+			var check := chunk.check_valid_spawn(%Tiles, Vector2i(x, y))
+			
 			if check:
-				chunk.copy_to(%Floorplan, Vector2i(x, y))
-				var size := chunk.get_used_rect().size
+				chunk.copy_to(%Tiles, Vector2i(x, y))
+				var size := chunk.floorplan.get_used_rect().size
 				x += size.x + gap
 				
 				if size.y > tallest:
@@ -55,7 +56,7 @@ func _test_load() -> void:
 			else:
 				x += 1
 		y += tallest + gap
-		x = 0
+		x = randi() % 2
 		tallest = 0
 
 func _generate_walls() -> void:

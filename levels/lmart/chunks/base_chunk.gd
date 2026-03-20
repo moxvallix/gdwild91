@@ -1,16 +1,18 @@
 class_name LMartChunk
-extends TileMapLayer
+extends Node2D
 
-func copy_to(tilemap: TileMapLayer, start_pos: Vector2i) -> void:
-	for cell: Vector2i in get_used_cells():
-		var atlas_pos := get_cell_atlas_coords(cell)
-		var new_pos := start_pos + cell
-		
-		tilemap.set_cell(new_pos, 0, atlas_pos)
+@onready var floorplan: LMartChunkLayer = get_node("%Floorplan")
+@onready var items: LMartChunkLayer = get_node("%Items")
 
-func check_valid_spawn(tilemap: TileMapLayer, start_pos: Vector2i) -> bool:
-	for cell: Vector2i in get_used_cells():
-		if tilemap.get_cell_atlas_coords(start_pos + cell) != Vector2i(-1, -1):
-			return false
-	
-	return true
+func _ready() -> void:
+	print("READY", floorplan)
+
+func copy_to(chunk: LMartChunk, start_pos: Vector2i) -> void:
+	%Floorplan.copy_to(chunk.floorplan, start_pos)
+	%Items.copy_to(chunk.items, start_pos)
+
+func check_valid_spawn(chunk: LMartChunk, start_pos: Vector2i) -> bool:
+	return (
+		%Floorplan.check_valid_spawn(chunk.floorplan, start_pos) and
+		%Items.check_valid_spawn(chunk.items, start_pos)
+	)
