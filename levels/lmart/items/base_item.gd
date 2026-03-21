@@ -48,6 +48,7 @@ func cancel_steal():
 func steal_completed():
 	stolen = true
 	hide_highlight()
+	Stats.add_money(value)
 	if player != null: spawn_steal_animation(player)
 	if frame_after_steal < 0:
 		%Icon.hide()
@@ -65,7 +66,6 @@ func spawn_steal_animation(player: Node2D):
 	
 	fake_item.add_child(sprite)
 	add_child(fake_item)
-	print(fake_item)
 
 func show_highlight():
 	var material: ShaderMaterial = %Icon.material

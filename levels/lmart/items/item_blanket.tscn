@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://rkr2r6pb32n" path="res://levels/lmart/items/base_item.tscn" id="1_5te7p"]
 
 [node name="BaseItem" unique_id=1436104109 instance=ExtResource("1_5te7p")]
+steal_time = 7.0
+value = 15
 
 [node name="Icon" parent="." index="0" unique_id=1914809004]
 frame = 3

@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://rkr2r6pb32n" path="res://levels/lmart/items/base_item.tscn" id="1_wi4qj"]
 
 [node name="BaseItem" unique_id=1436104109 instance=ExtResource("1_wi4qj")]
+steal_time = 1.0
+value = 1
 
 [node name="Icon" parent="." index="0" unique_id=1914809004]
 frame = 11
+
+[node name="CollisionShape2D" parent="InteractionRadius" parent_id_path=PackedInt32Array(2048663575) index="0" unique_id=1813575949]
+visible = false
+
+[node name="CollisionShape2D" parent="StealCancelRadius" parent_id_path=PackedInt32Array(106664104) index="0" unique_id=1401610527]
+visible = false

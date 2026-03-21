@@ -33,8 +33,9 @@ position = Vector2(1045.25, 533)
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="TestMap" parent="NavigationRegion2D" unique_id=1566324998 instance=ExtResource("3_lquwl")]
+scale = Vector2(1, 1)
 
-[node name="Player" parent="." unique_id=1417231954 groups=["player"] instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." unique_id=1417231954 instance=ExtResource("1_ig7tw")]
 position = Vector2(272, 1079)
 
 [node name="Guard" parent="." unique_id=1764606371 instance=ExtResource("2_0xm2m")]

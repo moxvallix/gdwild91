@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://d1sndyvbwnn7a" path="res://levels/lmart/chunks/base_chunk.gd" id="1_plvr2"]
 [ext_resource type="TileSet" uid="uid://b2qp14gakbvvm" path="res://levels/lmart/tiles.tres" id="2_anw3i"]
 [ext_resource type="TileSet" uid="uid://bc7vngsx75r" path="res://levels/lmart/items/item_tileset.tres" id="4_anw3i"]
+[ext_resource type="TileSet" uid="uid://cpyhov7nr5bsa" path="res://levels/lmart/Level_tiles.tres" id="2_plvr2"]
 
 [node name="BaseFullChunk" type="Node2D" unique_id=1566324998]
+scale = Vector2(4.16, 4.16)
 script = ExtResource("1_plvr2")
 metadata/_custom_type_script = "uid://d1sndyvbwnn7a"
 

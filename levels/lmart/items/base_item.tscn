@@ -164,15 +164,15 @@ shape = SubResource("RectangleShape2D_l1tus")
 [node name="InteractionRadius" type="Area2D" parent="." unique_id=2048663575]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRadius" unique_id=1813575949]
+visible = false
 shape = SubResource("CircleShape2D_agh4r")
 
 [node name="StealCancelRadius" type="Area2D" parent="." unique_id=106664104]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StealCancelRadius" unique_id=1401610527]
+visible = false
 shape = SubResource("CircleShape2D_8agu6")
 debug_color = Color(0.3174516, 0.6213143, 0.21788937, 0.41960785)
-
-[node name="Timer" type="Timer" parent="." unique_id=1542530883]
 
 [connection signal="input_event" from="ClickZone" to="." method="_on_click_zone_input_event"]
 [connection signal="mouse_entered" from="ClickZone" to="." method="_on_click_zone_mouse_entered"]
