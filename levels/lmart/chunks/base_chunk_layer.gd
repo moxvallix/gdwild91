@@ -4,9 +4,11 @@ extends TileMapLayer
 func copy_to(tilemap: TileMapLayer, start_pos: Vector2i) -> void:
 	for cell: Vector2i in get_used_cells():
 		var atlas_pos := get_cell_atlas_coords(cell)
+		var alt_tile := get_cell_alternative_tile(cell)
 		var new_pos := start_pos + cell
+		var src_id := tilemap.tile_set.get_source_id(0)
 		
-		tilemap.set_cell(new_pos, 0, atlas_pos)
+		tilemap.set_cell(new_pos, src_id, atlas_pos)
 
 func check_valid_spawn(tilemap: TileMapLayer, start_pos: Vector2i) -> bool:
 	for cell: Vector2i in get_used_cells():

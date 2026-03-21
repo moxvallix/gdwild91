@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dkgsfus4jykuh"]
+
+[ext_resource type="PackedScene" uid="uid://rkr2r6pb32n" path="res://levels/lmart/items/base_item.tscn" id="1_6b2gj"]
+
+[node name="BaseItem" unique_id=1436104109 instance=ExtResource("1_6b2gj")]
+
+[node name="Icon" parent="." index="0" unique_id=1914809004]
+frame = 2
+centered = true
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(360588683) index="0" unique_id=226010379]
+position = Vector2(0, 0)

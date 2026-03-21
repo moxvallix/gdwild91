@@ -6,9 +6,9 @@ const MAP_HEIGHT = 50
 
 const CHUNK_LIST = [
 	"res://levels/lmart/chunks/test_1.tscn",
-	"res://levels/lmart/chunks/test_2.tscn",
-	"res://levels/lmart/chunks/test_3.tscn",
-	"res://levels/lmart/chunks/test_4.tscn",
+	#"res://levels/lmart/chunks/test_2.tscn",
+	#"res://levels/lmart/chunks/test_3.tscn",
+	#"res://levels/lmart/chunks/test_4.tscn",
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -48,7 +48,7 @@ func _test_load() -> void:
 			
 			if check:
 				chunk.copy_to(%Tiles, Vector2i(x, y))
-				var size := chunk.floorplan.get_used_rect().size
+				var size := chunk.walls.get_used_rect().size
 				x += size.x + gap
 				
 				if size.y > tallest:

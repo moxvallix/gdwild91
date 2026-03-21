@@ -1,0 +1,12 @@
+[gd_resource type="TileSet" format=3 uid="uid://bc7vngsx75r"]
+
+[ext_resource type="PackedScene" uid="uid://br1d3gfb7o60v" path="res://levels/lmart/items/item_gumball.tscn" id="1_pw68p"]
+[ext_resource type="PackedScene" uid="uid://dkgsfus4jykuh" path="res://levels/lmart/items/item_dogfood.tscn" id="2_pb80x"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pw68p"]
+scenes/1/scene = ExtResource("1_pw68p")
+scenes/2/scene = ExtResource("2_pb80x")
+
+[resource]
+tile_size = Vector2i(200, 200)
+sources/0 = SubResource("TileSetScenesCollectionSource_pw68p")

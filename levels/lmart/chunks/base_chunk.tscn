@@ -2,20 +2,28 @@
 
 [ext_resource type="Script" uid="uid://cassu7jlfsp05" path="res://levels/lmart/chunks/base_chunk_layer.gd" id="1_1oe4o"]
 [ext_resource type="Script" uid="uid://d1sndyvbwnn7a" path="res://levels/lmart/chunks/base_chunk.gd" id="1_plvr2"]
-[ext_resource type="TileSet" uid="uid://b7dx2i8csl07o" path="res://levels/lmart/debug_tiles.tres" id="1_pn0yc"]
+[ext_resource type="TileSet" uid="uid://b2qp14gakbvvm" path="res://levels/lmart/tiles.tres" id="2_anw3i"]
+[ext_resource type="TileSet" uid="uid://bc7vngsx75r" path="res://levels/lmart/items/item_tileset.tres" id="4_anw3i"]
 
 [node name="BaseFullChunk" type="Node2D" unique_id=1566324998]
 script = ExtResource("1_plvr2")
 metadata/_custom_type_script = "uid://d1sndyvbwnn7a"
 
-[node name="Floorplan" type="TileMapLayer" parent="." unique_id=106697298]
+[node name="Floor" type="TileMapLayer" parent="." unique_id=236309870]
 unique_name_in_owner = true
-tile_set = ExtResource("1_pn0yc")
+tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_anw3i")
+script = ExtResource("1_1oe4o")
+metadata/_custom_type_script = "uid://cassu7jlfsp05"
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=106697298]
+unique_name_in_owner = true
+tile_set = ExtResource("2_anw3i")
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
 
 [node name="Items" type="TileMapLayer" parent="." unique_id=165867766]
 unique_name_in_owner = true
-tile_set = ExtResource("1_pn0yc")
+tile_set = ExtResource("4_anw3i")
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
