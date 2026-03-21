@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cf8xbw8rxqrr5"]
 
+[ext_resource type="Script" uid="uid://c2gdtmdu85seo" path="res://enemies/guard/guard.gd" id="1_5k28o"]
 [ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="1_y3myj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3myj"]
 radius = 62.0
 height = 146.0
 
-[node name="Guard" type="CharacterBody2D" unique_id=1764606371]
+[node name="Guard" type="CharacterBody2D" unique_id=1764606371 groups=["Enemy"]]
+collision_layer = 2
+script = ExtResource("1_5k28o")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1894369693]
 modulate = Color(0.1060246, 0.47542626, 0, 1)
@@ -19,3 +22,21 @@ shape = SubResource("CapsuleShape2D_y3myj")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1739009944]
 polygon = PackedVector2Array(0, 0, 1000, -300, 1000, 300)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=301805180]
+path_desired_distance = 100.0
+target_desired_distance = 100.0
+path_max_distance = 10.0
+debug_enabled = true
+debug_path_custom_color = Color(0.99999994, 0.12885794, 0.13542005, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=454403656]
+one_shot = true
+
+[node name="player_loss_timer" type="Timer" parent="." unique_id=574435978]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="player_loss_timer" to="." method="_on_player_loss_timer_timeout"]

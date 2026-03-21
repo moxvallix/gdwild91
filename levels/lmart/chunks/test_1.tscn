@@ -12,3 +12,4 @@ tile_map_data = PackedByteArray("AAAAAP//AQACAAgAAAAAAAAAAQACAAkAAAAAAAEAAQACAAo
 
 [node name="Items" parent="." index="2" unique_id=165867766]
 tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAgACAAAAAAAAAAAAAgA=")
+collision_visibility_mode = 1

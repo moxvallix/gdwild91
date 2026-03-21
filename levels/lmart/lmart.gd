@@ -15,6 +15,8 @@ const CHUNK_LIST = [
 func _ready() -> void:
 	#_generate_walls() 
 	_test_load()
+	var parent: NavigationRegion2D = self.get_parent()
+	parent.bake_navigation_polygon()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
