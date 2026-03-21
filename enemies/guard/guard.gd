@@ -6,8 +6,13 @@ const JUMP_VELOCITY = -400.0
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 var object_of_intrest: Node2D
+var temp_OOI: Node2D
+var home_position: Vector2
 
 var move_threshold: int = 50
+
+func _ready() -> void:
+	home_position = self.get_global_transform().origin
 
 func _physics_process(delta: float) -> void:
 	if object_of_intrest:
@@ -16,8 +21,12 @@ func _physics_process(delta: float) -> void:
 		var next_nav_point: Vector2 = nav_agent.get_next_path_position()
 		velocity = ((next_nav_point - transform.origin).normalized() * SPEED)
 	else:
-		velocity -= velocity * delta
-
+		nav_agent.target_position = home_position
+		nav_agent.get_next_path_position()
+		var next_nav_point: Vector2 = nav_agent.get_next_path_position()
+		velocity = ((next_nav_point - transform.origin).normalized() * SPEED)
+	if temp_OOI:
+		self.rotation += self.get_angle_to(temp_OOI.global_position) * delta
 	move_and_slide()
 
 
@@ -44,18 +53,18 @@ func _on_timer_timeout() -> void:
 	for body in bodies:
 		if body.is_in_group("player"):
 			object_of_intrest = body
+			body.followed = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		$player_loss_timer.start()
+	$player_loss_timer.start()
 
 
 func _on_player_loss_timer_timeout() -> void:
+	var names: PackedStringArray = []
 	var bodies = $Area2D.get_overlapping_bodies()
 	for body in bodies:
-		if body.is_in_group("player"):
-			object_of_intrest = body
-			return
-		else:
-			pass
+		names.append(body.name)
+	if ! names.has("s"):
+		object_of_intrest.followed = false
+		object_of_intrest = null

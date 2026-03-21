@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 600.0
+var followed: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -19,3 +20,14 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func reload():
+	get_tree().reload_current_scene()
+
+func _on_detection_zone_body_entered(body: Node2D) -> void:
+	if followed:
+		if body.is_in_group("Enemy"):
+			call_deferred("reload")
+	if body.is_in_group("Enemy"):
+		body._on_area_2d_body_entered(self)
+		body.temp_OOI = self
