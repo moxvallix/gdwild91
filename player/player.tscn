@@ -13,7 +13,7 @@ radius = 40.0
 radius = 55.0
 height = 128.0
 
-[node name="s" type="CharacterBody2D" unique_id=1417231954]
+[node name="s" type="CharacterBody2D" unique_id=1417231954 groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_rkbax")
 

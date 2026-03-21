@@ -11,7 +11,6 @@ metadata/_custom_type_script = "uid://d1sndyvbwnn7a"
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=236309870]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 tile_set = ExtResource("2_anw3i")
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
@@ -20,6 +19,12 @@ metadata/_custom_type_script = "uid://cassu7jlfsp05"
 unique_name_in_owner = true
 tile_set = ExtResource("2_anw3i")
 navigation_enabled = false
+script = ExtResource("1_1oe4o")
+metadata/_custom_type_script = "uid://cassu7jlfsp05"
+
+[node name="Details" type="TileMapLayer" parent="." unique_id=390924889]
+unique_name_in_owner = true
+tile_set = ExtResource("2_anw3i")
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
 

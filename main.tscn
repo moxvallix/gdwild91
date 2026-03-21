@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bkrw8g3pmc41c"]
 
-[ext_resource type="PackedScene" uid="uid://dqfd4qf3mhtdu" path="res://levels/lmart/lmart.tscn" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://tg6nq7efnt2n" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tlbd75lpylpk" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cf8xbw8rxqrr5" path="res://enemies/guard/guard.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bxw78pjqlf46e" path="res://levels/lmart/test_map.tscn" id="3_lquwl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(1231, 928, 1231, 138, 25288.14, -11765.672, 29463.828, 18991.977, -28053.133, -10640.828, 859.5, 138, -15343.977, 21243.672, 859.5, 928)
@@ -32,13 +32,13 @@ texture = ExtResource("3_h2yge")
 position = Vector2(1045.25, 533)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="Lmart" parent="NavigationRegion2D" unique_id=1606753722 instance=ExtResource("1_1bvp3")]
+[node name="TestMap" parent="NavigationRegion2D" unique_id=1566324998 instance=ExtResource("3_lquwl")]
 
 [node name="Player" parent="." unique_id=1417231954 groups=["player"] instance=ExtResource("1_ig7tw")]
-position = Vector2(267, 854)
+position = Vector2(272, 1079)
 
 [node name="Guard" parent="." unique_id=1764606371 instance=ExtResource("2_0xm2m")]
-position = Vector2(437, 491)
+position = Vector2(419, 142)
 
 [node name="Timer" type="Timer" parent="." unique_id=156390605]
 wait_time = 5.0

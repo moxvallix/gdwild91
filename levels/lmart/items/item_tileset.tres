@@ -2,10 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://br1d3gfb7o60v" path="res://levels/lmart/items/item_gumball.tscn" id="1_pw68p"]
 [ext_resource type="PackedScene" uid="uid://dkgsfus4jykuh" path="res://levels/lmart/items/item_dogfood.tscn" id="2_pb80x"]
+[ext_resource type="PackedScene" uid="uid://dxufhfej0u6si" path="res://levels/lmart/items/item_lamp.tscn" id="2_pmwtk"]
+[ext_resource type="PackedScene" uid="uid://suq2nuqt860t" path="res://levels/lmart/items/item_soccer.tscn" id="3_1tdpp"]
+[ext_resource type="PackedScene" uid="uid://dln1n4lu82khs" path="res://levels/lmart/items/item_banana.tscn" id="4_hbtxk"]
+[ext_resource type="PackedScene" uid="uid://char3ivlcjuu4" path="res://levels/lmart/items/item_blanket.tscn" id="5_ihbpy"]
+[ext_resource type="PackedScene" uid="uid://bubyxo3mom16n" path="res://levels/lmart/items/item_box.tscn" id="6_l55ru"]
+[ext_resource type="PackedScene" uid="uid://c17yxq4aegwfu" path="res://levels/lmart/items/item_chips.tscn" id="7_ygkdj"]
+[ext_resource type="PackedScene" uid="uid://deghsiptpc01e" path="res://levels/lmart/items/item_clothes.tscn" id="8_nign4"]
+[ext_resource type="PackedScene" uid="uid://bkndppdty6uia" path="res://levels/lmart/items/item_games.tscn" id="10_0g6ki"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pw68p"]
-scenes/1/scene = ExtResource("1_pw68p")
-scenes/2/scene = ExtResource("2_pb80x")
+scenes/3/scene = ExtResource("4_hbtxk")
+scenes/4/scene = ExtResource("5_ihbpy")
+scenes/5/scene = ExtResource("6_l55ru")
+scenes/6/scene = ExtResource("7_ygkdj")
+scenes/7/scene = ExtResource("8_nign4")
+scenes/8/scene = ExtResource("2_pb80x")
+scenes/9/scene = ExtResource("10_0g6ki")
+scenes/10/scene = ExtResource("1_pw68p")
+scenes/11/scene = ExtResource("2_pmwtk")
+scenes/12/scene = ExtResource("3_1tdpp")
 
 [resource]
 tile_size = Vector2i(200, 200)

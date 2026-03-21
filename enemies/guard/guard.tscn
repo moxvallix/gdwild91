@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf8xbw8rxqrr5"]
 
-[ext_resource type="Script" uid="uid://c2gdtmdu85seo" path="res://enemies/guard/guard.gd" id="1_5k28o"]
+[ext_resource type="Script" path="res://enemies/guard/guard.gd" id="1_5k28o"]
 [ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="1_y3myj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3myj"]
