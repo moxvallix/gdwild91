@@ -2,22 +2,24 @@
 
 [ext_resource type="Script" uid="uid://cassu7jlfsp05" path="res://levels/lmart/chunks/base_chunk_layer.gd" id="1_1oe4o"]
 [ext_resource type="Script" uid="uid://d1sndyvbwnn7a" path="res://levels/lmart/chunks/base_chunk.gd" id="1_plvr2"]
-[ext_resource type="TileSet" uid="uid://b7dx2i8csl07o" path="res://levels/lmart/debug_tiles.tres" id="1_pn0yc"]
+[ext_resource type="TileSet" uid="uid://cpyhov7nr5bsa" path="res://levels/lmart/Level_tiles.tres" id="2_plvr2"]
 
 [node name="BaseFullChunk" type="Node2D" unique_id=1566324998]
+scale = Vector2(4.16, 4.16)
 script = ExtResource("1_plvr2")
 metadata/_custom_type_script = "uid://d1sndyvbwnn7a"
 
-[node name="Floorplan" type="TileMapLayer" parent="." unique_id=106697298]
+[node name="Items" type="TileMapLayer" parent="." unique_id=165867766]
 unique_name_in_owner = true
-tile_set = ExtResource("1_pn0yc")
+tile_set = ExtResource("2_plvr2")
+y_sort_origin = -1
 navigation_enabled = false
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
 
-[node name="Items" type="TileMapLayer" parent="." unique_id=165867766]
+[node name="Floorplan" type="TileMapLayer" parent="." unique_id=106697298]
 unique_name_in_owner = true
-tile_set = ExtResource("1_pn0yc")
+tile_set = ExtResource("2_plvr2")
 navigation_enabled = false
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"

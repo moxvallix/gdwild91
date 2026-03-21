@@ -8,6 +8,7 @@ radius = 62.0
 height = 146.0
 
 [node name="Guard" type="CharacterBody2D" unique_id=1764606371 groups=["Enemy"]]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_5k28o")
 
