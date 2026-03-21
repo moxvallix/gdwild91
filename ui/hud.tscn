@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://v3s54xpb72ge"]
+
+[ext_resource type="Script" uid="uid://cv3r2ch1ixyix" path="res://ui/hud.gd" id="1_rbyyf"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1432477765]
+script = ExtResource("1_rbyyf")
+
+[node name="Control" type="Control" parent="." unique_id=1284413045]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Balance" type="Label" parent="Control" unique_id=1429176359]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 81.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 32
+text = "BALANCE"
