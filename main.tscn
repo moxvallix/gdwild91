@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://tlbd75lpylpk" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cf8xbw8rxqrr5" path="res://enemies/guard/guard.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://v3s54xpb72ge" path="res://ui/hud.tscn" id="2_7mycd"]
-[ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bxw78pjqlf46e" path="res://levels/lmart/test_map.tscn" id="3_lquwl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
