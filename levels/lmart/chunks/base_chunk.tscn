@@ -19,6 +19,7 @@ metadata/_custom_type_script = "uid://cassu7jlfsp05"
 [node name="Walls" type="TileMapLayer" parent="." unique_id=106697298]
 unique_name_in_owner = true
 tile_set = ExtResource("2_anw3i")
+y_sort_origin = 2
 navigation_enabled = false
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
@@ -32,6 +33,7 @@ metadata/_custom_type_script = "uid://cassu7jlfsp05"
 [node name="Items" type="TileMapLayer" parent="." unique_id=165867766]
 unique_name_in_owner = true
 tile_set = ExtResource("4_anw3i")
+y_sort_origin = 2
 navigation_enabled = false
 script = ExtResource("1_1oe4o")
 metadata/_custom_type_script = "uid://cassu7jlfsp05"
