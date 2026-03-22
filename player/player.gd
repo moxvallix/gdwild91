@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 600.0
+const SPEED = 800.0
 var followed: bool = false
 var dir := 2
 

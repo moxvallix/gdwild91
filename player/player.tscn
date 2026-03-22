@@ -104,9 +104,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 112.4
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
-radius = 40.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 radius = 55.0
 height = 128.0
@@ -129,13 +126,6 @@ collision_mask = 2
 [node name="DetectionHitbox" type="CollisionShape2D" parent="DetectionZone" unique_id=821770005]
 shape = SubResource("CircleShape2D_g1dw6")
 debug_color = Color(0.96165186, 0.19863188, 7.70092e-07, 0.41960785)
-
-[node name="InteractionZone" type="Area2D" parent="." unique_id=570206982]
-
-[node name="InteractionHitbox" type="CollisionShape2D" parent="InteractionZone" unique_id=1582845414]
-position = Vector2(90, 0)
-shape = SubResource("CircleShape2D_rkbax")
-debug_color = Color(0.35277343, 0.61929727, 0, 0.41960785)
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1618886121]
 position = Vector2(0, 9)
