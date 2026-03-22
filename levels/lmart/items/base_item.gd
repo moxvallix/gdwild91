@@ -29,7 +29,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not steal_timer.is_stopped():
+		%StealProgress.visible = true
 		%StealProgress.value = (1 - (steal_timer.time_left / steal_time)) * 100.0
+	else:
+		%StealProgress.visible = false
 
 func being_stolen():
 	return not steal_timer.is_stopped()
@@ -70,12 +73,12 @@ func spawn_steal_animation(player: Node2D):
 func show_highlight():
 	var material: ShaderMaterial = %Icon.material
 	material.set_shader_parameter("outline_thickness", 4)
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_POINTING_HAND
 
 func hide_highlight():
 	var material: ShaderMaterial = %Icon.material
 	material.set_shader_parameter("outline_thickness", 0)
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_ARROW
 
 func enter_range():
 	in_range = true
@@ -89,7 +92,7 @@ func exit_steal_cancel_range():
 	if being_stolen(): cancel_steal()
 
 # Signals
-func _on_click_zone_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_click_zone_gui_input(event: InputEvent) -> void:
 	if not can_steal(): return
 	
 	if event.is_action_pressed("steal"):

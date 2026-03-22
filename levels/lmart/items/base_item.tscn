@@ -126,9 +126,6 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1tus"]
-size = Vector2(200, 200)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_agh4r"]
 radius = 500.0
 
@@ -138,12 +135,22 @@ radius = 670.94
 [node name="BaseItem" type="Node2D" unique_id=1436104109]
 script = ExtResource("1_isnk3")
 
+[node name="ClickZone" type="Control" parent="." unique_id=1402433468]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1914809004]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_7fcg2")
 
 [node name="StealProgress" type="ProgressBar" parent="Icon" unique_id=1437854040]
 unique_name_in_owner = true
+visible = false
 anchors_preset = -1
 anchor_left = -0.06
 offset_left = -47.0
@@ -154,12 +161,6 @@ mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_agh4r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8agu6")
 metadata/_edit_use_anchors_ = true
-
-[node name="ClickZone" type="Area2D" parent="." unique_id=360588683]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickZone" unique_id=226010379]
-visible = false
-shape = SubResource("RectangleShape2D_l1tus")
 
 [node name="InteractionRadius" type="Area2D" parent="." unique_id=2048663575]
 
@@ -174,7 +175,7 @@ visible = false
 shape = SubResource("CircleShape2D_8agu6")
 debug_color = Color(0.3174516, 0.6213143, 0.21788937, 0.41960785)
 
-[connection signal="input_event" from="ClickZone" to="." method="_on_click_zone_input_event"]
+[connection signal="gui_input" from="ClickZone" to="." method="_on_click_zone_gui_input"]
 [connection signal="mouse_entered" from="ClickZone" to="." method="_on_click_zone_mouse_entered"]
 [connection signal="mouse_exited" from="ClickZone" to="." method="_on_click_zone_mouse_exited"]
 [connection signal="body_entered" from="InteractionRadius" to="." method="_on_interaction_radius_body_entered"]
