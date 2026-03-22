@@ -9,6 +9,12 @@ func _physics_process(delta: float) -> void:
 	var dir_x := Input.get_axis("move_left", "move_right")
 	var dir_y := Input.get_axis("move_up", "move_down")
 	
+	if dir_x > 0:
+		%Sprite.flip_h = false
+
+	if dir_x < 0:
+		%Sprite.flip_h = true
+
 	if dir_x:
 		velocity.x = dir_x * SPEED
 	else:

@@ -1,7 +1,57 @@
 [gd_scene format=3 uid="uid://tlbd75lpylpk"]
 
-[ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://5165ak4dmebc" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://d1omvxl2iika0" path="res://player/player_side_frames.png" id="2_rkbax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(0, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(300, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjkh3"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(600, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(900, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(1200, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
+atlas = ExtResource("2_rkbax")
+region = Rect2(1500, 0, 300, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg6s5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1dw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw30f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjkh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6k8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boad6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgyib")
+}],
+"loop": true,
+"name": &"run_side",
+"speed": 12.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 112.4
@@ -18,10 +68,12 @@ z_index = 1
 collision_mask = 3
 script = ExtResource("1_rkbax")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1952238386]
-position = Vector2(0, -64)
-scale = Vector2(1, 2)
-texture = ExtResource("1_oul6g")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1292402080]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_hg6s5")
+animation = &"run_side"
+autoplay = "run_side"
+frame_progress = 0.5817094
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=976869740]
 position = Vector2(-1, 0)
