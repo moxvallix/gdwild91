@@ -15,8 +15,8 @@ var player: Player
 func _ready() -> void:
 	var material: ShaderMaterial = ShaderMaterial.new()
 	material.shader = outline_shader
-	material.set_shader_parameter("outline_thickness", 0)
-	material.set_shader_parameter("outline_color", Vector4(0.2, 0.91, 0.165, 1.0))
+	material.set_shader_parameter("outline_thickness", 0.0)
+	material.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
 	%Icon.material = material
 	
 	steal_timer = Timer.new()
@@ -75,20 +75,31 @@ func spawn_steal_animation(player: Node2D):
 
 func show_highlight():
 	var material: ShaderMaterial = %Icon.material
-	material.set_shader_parameter("outline_thickness", 4)
+	material.set_shader_parameter("outline_thickness", 4.0)
+
+func focus_highlight():
+	var material: ShaderMaterial = %Icon.material
+	material.set_shader_parameter("outline_color", Vector4(0.2, 0.91, 0.165, 1.0))
 	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_POINTING_HAND
+
+func unfocus_highlight():
+	var material: ShaderMaterial = %Icon.material
+	material.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
+	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_ARROW
 
 func hide_highlight():
 	var material: ShaderMaterial = %Icon.material
-	material.set_shader_parameter("outline_thickness", 0)
-	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_ARROW
+	material.set_shader_parameter("outline_thickness", 0.0)
 
 func enter_range():
 	in_range = true
-	if mouseover: show_highlight()
+	var material: ShaderMaterial = %Icon.material
+	show_highlight()
+	if mouseover: focus_highlight()
 
 func exit_range():
 	in_range = false
+	var material: ShaderMaterial = %Icon.material
 	hide_highlight()
 
 func exit_steal_cancel_range():
@@ -116,12 +127,12 @@ func _on_click_zone_gui_input(event: InputEvent) -> void:
 
 func _on_click_zone_mouse_entered() -> void:
 	mouseover = true
-	if can_steal(): show_highlight()
+	if can_steal(): focus_highlight()
 
 func _on_click_zone_mouse_exited() -> void:
 	mouseover = false
 	if stolen: return
-	hide_highlight()
+	unfocus_highlight()
 
 func _on_interaction_radius_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
