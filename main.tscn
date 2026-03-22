@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tg6nq7efnt2n" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tlbd75lpylpk" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cf8xbw8rxqrr5" path="res://enemies/guard/guard.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://v3s54xpb72ge" path="res://ui/hud.tscn" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bdwdlc8oih3mw" path="res://icon.svg" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bxw78pjqlf46e" path="res://levels/lmart/test_map.tscn" id="3_lquwl"]
 
@@ -17,6 +18,8 @@ size = Vector2(121.5, 540)
 
 [node name="Main" type="Node2D" unique_id=1388227079]
 script = ExtResource("1_h2yge")
+
+[node name="Hud" parent="." unique_id=1432477765 instance=ExtResource("2_7mycd")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=440473814]
 navigation_polygon = SubResource("NavigationPolygon_1bvp3")
