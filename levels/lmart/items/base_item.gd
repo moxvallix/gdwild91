@@ -10,7 +10,7 @@ var stolen := false
 var in_range := false
 var mouseover := false
 var steal_timer: Timer
-var player: Node2D
+var player: Player
 
 func _ready() -> void:
 	var material: ShaderMaterial = ShaderMaterial.new()
@@ -43,16 +43,19 @@ func can_steal():
 func steal() -> void:
 	steal_timer.start()
 	hide_highlight()
+	add_to_player_steal_list()
 
 func cancel_steal():
 	steal_timer.stop()
 	%StealProgress.value = 0
+	remove_from_player_steal_list()
 
 func steal_completed():
 	stolen = true
 	hide_highlight()
 	Stats.add_money(value)
 	if player != null: spawn_steal_animation(player)
+	remove_from_player_steal_list()
 	if frame_after_steal < 0:
 		%Icon.hide()
 	else:
@@ -91,6 +94,19 @@ func exit_range():
 func exit_steal_cancel_range():
 	if being_stolen(): cancel_steal()
 
+func add_to_player_steal_list():
+	if not player: return
+	
+	player.items_being_stolen.push_back(self)
+
+func remove_from_player_steal_list():
+	if not player: return
+	
+	var idx = player.items_being_stolen.find(self)
+	if idx < 0: return
+	
+	player.items_being_stolen.remove_at(idx)
+
 # Signals
 func _on_click_zone_gui_input(event: InputEvent) -> void:
 	if not can_steal(): return
@@ -118,5 +134,4 @@ func _on_interaction_radius_body_exited(body: Node2D) -> void:
 
 func _on_steal_cancel_radius_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		player = null
 		exit_steal_cancel_range()

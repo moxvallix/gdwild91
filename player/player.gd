@@ -1,8 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
 const SPEED = 800.0
 var followed: bool = false
 var dir := 2
+var items_being_stolen: Array[Node2D]
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -53,6 +55,9 @@ func set_idle_anim():
 
 func reload():
 	get_tree().reload_current_scene()
+
+func is_stealing() -> bool:
+	return items_being_stolen.size() > 0
 
 func _on_detection_zone_body_entered(body: Node2D) -> void:
 	if followed:

@@ -6,7 +6,7 @@ extends Node2D
 @onready var items: LMartChunkLayer = get_node("%Items")
 
 func _ready() -> void:
-	print("READY", walls)
+	pass
 
 func copy_to(chunk: LMartChunk, start_pos: Vector2i) -> void:
 	%Floor.copy_to(chunk.floor, start_pos)
