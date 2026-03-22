@@ -2,7 +2,32 @@
 
 [ext_resource type="Script" uid="uid://5165ak4dmebc" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://d1omvxl2iika0" path="res://player/player_side_frames.png" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://cxnvsvkr6s4fm" path="res://player/player_down_frames.png" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://ca5b11cfarkjp" path="res://player/player_up_frames.png" id="3_g1dw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wodsf"]
+atlas = ExtResource("2_yw30f")
+region = Rect2(0, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hag"]
+atlas = ExtResource("2_yw30f")
+region = Rect2(300, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqiix"]
+atlas = ExtResource("2_yw30f")
+region = Rect2(600, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7oew"]
+atlas = ExtResource("2_yw30f")
+region = Rect2(900, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c35mf"]
+atlas = ExtResource("2_yw30f")
+region = Rect2(1200, 0, 300, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65viv"]
+atlas = ExtResource("2_yw30f")
+region = Rect2(1500, 0, 300, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
 atlas = ExtResource("2_rkbax")
@@ -54,6 +79,29 @@ region = Rect2(1500, 0, 300, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hg6s5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wodsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqiix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7oew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c35mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65viv")
+}],
+"loop": true,
+"name": &"run_down",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g1dw6")
@@ -117,7 +165,7 @@ script = ExtResource("1_rkbax")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1292402080]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_hg6s5")
-animation = &"run_side"
+animation = &"run_down"
 autoplay = "run_side"
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=976869740]

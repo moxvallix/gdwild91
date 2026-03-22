@@ -43,6 +43,9 @@ func set_run_anim():
 		0:
 			%Sprite.animation = &"run_up"
 			%Sprite.flip_h = false
+		1:
+			%Sprite.animation = &"run_down"
+			%Sprite.flip_h = false
 		2:
 			%Sprite.animation = &"run_side"
 			%Sprite.flip_h = false
