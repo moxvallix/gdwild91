@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://tg6nq7efnt2n" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://tlbd75lpylpk" path="res://player/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://cf8xbw8rxqrr5" path="res://enemies/guard/guard.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://v3s54xpb72ge" path="res://ui/hud.tscn" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bxw78pjqlf46e" path="res://levels/lmart/test_map.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://rqnjwx81ywfk" path="res://levels/lmart/level_1.tscn" id="3_lquwl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
-vertices = PackedVector2Array(4295, 95, 25314.258, -11796.227, 29497.938, 19020.313, 4095, 895, 4095, 505, -15363.898, 21274.703, 695, 895, 905, 895, -95, 895, 1695, 895, 1695, 505, 2305, 505, 2305, 895, -28097.008, -10669.898, -95, 505, 4295, -695, -95, -695, 1495, 95, 3305, 505, 1495, 295, -95, 95, 1105, 95, 1105, 295, 905, 505, 695, 505, 3305, 895, 3095, 895, 3095, 505)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 5, 6, 7), PackedInt32Array(8, 6, 5), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(8, 5, 13, 14), PackedInt32Array(1, 0, 15), PackedInt32Array(13, 1, 15, 16), PackedInt32Array(17, 0, 4, 18, 19), PackedInt32Array(20, 21, 22, 23, 24), PackedInt32Array(18, 25, 26, 27), PackedInt32Array(19, 18, 27), PackedInt32Array(19, 27, 11), PackedInt32Array(19, 11, 10), PackedInt32Array(19, 10, 23, 22), PackedInt32Array(13, 16, 20), PackedInt32Array(14, 13, 20, 24), PackedInt32Array(6, 24, 23, 7), PackedInt32Array(2, 7, 9), PackedInt32Array(2, 9, 12), PackedInt32Array(2, 12, 26), PackedInt32Array(2, 26, 25), PackedInt32Array(3, 2, 25)])
+vertices = PackedVector2Array(16735, 1569, 14049, 1569, 5919, 927, 5919, -95, -15363.898, 21274.703, 6751, 7583, 14049, 3423, 16735, 3423, 29497.938, 19020.313, 6751, 5729, -95, 5729, 2591, 3423, 4065, 3423, 12575, 3423, 25314.258, -11796.227, 9889, 3423, -95, 3423, -95, 7583, -28097.008, -10669.898, 6751, 3423, 6751, 1569, 9889, 1569, -95, 1569, 12575, 1569, 4065, 1569, 4897, 927, 2591, 1569, 4897, -95)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 6, 5), PackedInt32Array(14, 8, 7, 0), PackedInt32Array(15, 13, 5, 9), PackedInt32Array(16, 11, 10), PackedInt32Array(17, 5, 4), PackedInt32Array(18, 14, 0, 3), PackedInt32Array(19, 20, 21, 15), PackedInt32Array(19, 15, 9), PackedInt32Array(17, 4, 18, 10), PackedInt32Array(16, 10, 18), PackedInt32Array(22, 16, 18), PackedInt32Array(1, 6, 13, 23), PackedInt32Array(2, 1, 23), PackedInt32Array(2, 23, 21), PackedInt32Array(2, 21, 20), PackedInt32Array(2, 20, 24, 25), PackedInt32Array(12, 19, 9), PackedInt32Array(24, 12, 11, 26), PackedInt32Array(18, 3, 27), PackedInt32Array(22, 18, 27, 26), PackedInt32Array(24, 26, 27, 25)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-28236, -10762, 25397, -11893, 29606, 19110, -15427, 21373)])
 agent_radius = 95.0
 
@@ -23,27 +22,25 @@ script = ExtResource("1_h2yge")
 
 [node name="Hud" parent="." unique_id=1432477765 instance=ExtResource("2_7mycd")]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=440473814]
-navigation_polygon = SubResource("NavigationPolygon_1bvp3")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1259177311]
-
-[node name="TestMap" parent="NavigationRegion2D" unique_id=1566324998 instance=ExtResource("3_lquwl")]
-scale = Vector2(1, 1)
+[node name="Level1" parent="." unique_id=1566324998 instance=ExtResource("3_lquwl")]
 
 [node name="Player" parent="." unique_id=1417231954 instance=ExtResource("1_ig7tw")]
-position = Vector2(272, 1079)
-
-[node name="Guard" parent="." unique_id=1764606371 node_paths=PackedStringArray("Patrol_path") instance=ExtResource("2_0xm2m")]
-position = Vector2(419, 142)
-Patrol_path = NodePath("../Patrol_paths/Path2D")
+position = Vector2(4195, 6392)
+facing_direction = 0
 
 [node name="Timer" type="Timer" parent="." unique_id=156390605]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=440473814]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_1bvp3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1259177311]
+
 [node name="Patrol_paths" type="Node2D" parent="." unique_id=1749582990]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Patrol_paths" unique_id=1211753754]
 curve = SubResource("Curve2D_1bvp3")

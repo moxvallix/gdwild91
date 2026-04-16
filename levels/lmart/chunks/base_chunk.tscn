@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://bc7vngsx75r" path="res://levels/lmart/items/item_tileset.tres" id="4_anw3i"]
 
 [node name="BaseFullChunk" type="Node2D" unique_id=1566324998]
-scale = Vector2(4.16, 4.16)
 script = ExtResource("1_plvr2")
 metadata/_custom_type_script = "uid://d1sndyvbwnn7a"
 

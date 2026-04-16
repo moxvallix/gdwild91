@@ -1,106 +1,7 @@
 [gd_scene format=3 uid="uid://rkr2r6pb32n"]
 
 [ext_resource type="Script" uid="uid://cho74oj4vivhh" path="res://levels/lmart/items/base_item.gd" id="1_isnk3"]
-[ext_resource type="Texture2D" uid="uid://gllgvv30bqhk" path="res://levels/lmart/tiles.png" id="2_agh4r"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8agu6"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(0, 1200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3kpsw"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(200, 1200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mj00x"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(400, 1200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qd1ua"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(600, 1200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_be14y"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(800, 1200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ft8sg"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(1000, 1200, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fwkwj"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(0, 1400, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hx8xv"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(200, 1400, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgc4i"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(400, 1400, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5g7p"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(600, 1400, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lqst8"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(800, 1400, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxtds"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(1000, 1400, 200, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7fcg2"]
-atlas = ExtResource("2_agh4r")
-region = Rect2(0, 1600, 200, 200)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7fcg2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8agu6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3kpsw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mj00x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qd1ua")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_be14y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ft8sg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fwkwj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hx8xv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vgc4i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s5g7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lqst8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dxtds")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7fcg2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bi2sy34m7pd8m" path="res://levels/lmart/items/item_frames.tres" id="2_agh4r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agh4r"]
 content_margin_left = 2.0
@@ -135,28 +36,54 @@ radius = 670.94
 [node name="BaseItem" type="Node2D" unique_id=1436104109]
 script = ExtResource("1_isnk3")
 
-[node name="ClickZone" type="Control" parent="." unique_id=1402433468]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="." unique_id=22889281]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -100.0
 offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = -100.0
+offset_bottom = -100.0
 
-[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1914809004]
+[node name="Viewport" type="SubViewportContainer" parent="Control" unique_id=412704864]
 unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_7fcg2")
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="StealProgress" type="ProgressBar" parent="Icon" unique_id=1437854040]
+[node name="SubViewport" type="SubViewport" parent="Control/Viewport" unique_id=14486145]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Icon" type="AnimatedSprite2D" parent="Control/Viewport/SubViewport" unique_id=1914809004]
 unique_name_in_owner = true
-visible = false
-anchors_preset = -1
-anchor_left = -0.06
-offset_left = -47.0
-offset_top = -13.0
-offset_right = 58.0
-offset_bottom = 14.0
+sprite_frames = ExtResource("2_agh4r")
+centered = false
+
+[node name="ClickZone" type="Control" parent="Control" unique_id=1402433468]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="StealProgress" type="ProgressBar" parent="Control/ClickZone" unique_id=1437854040]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -13.5
+offset_right = 52.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_agh4r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8agu6")
@@ -175,9 +102,9 @@ visible = false
 shape = SubResource("CircleShape2D_8agu6")
 debug_color = Color(0.3174516, 0.6213143, 0.21788937, 0.41960785)
 
-[connection signal="gui_input" from="ClickZone" to="." method="_on_click_zone_gui_input"]
-[connection signal="mouse_entered" from="ClickZone" to="." method="_on_click_zone_mouse_entered"]
-[connection signal="mouse_exited" from="ClickZone" to="." method="_on_click_zone_mouse_exited"]
+[connection signal="gui_input" from="Control/ClickZone" to="." method="_on_click_zone_gui_input"]
+[connection signal="mouse_entered" from="Control/ClickZone" to="." method="_on_click_zone_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ClickZone" to="." method="_on_click_zone_mouse_exited"]
 [connection signal="body_entered" from="InteractionRadius" to="." method="_on_interaction_radius_body_entered"]
 [connection signal="body_exited" from="InteractionRadius" to="." method="_on_interaction_radius_body_exited"]
 [connection signal="body_exited" from="StealCancelRadius" to="." method="_on_steal_cancel_radius_body_exited"]

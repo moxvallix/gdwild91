@@ -1,17 +1,40 @@
 [gd_resource type="TileSet" format=3 uid="uid://bc7vngsx75r"]
 
+[ext_resource type="PackedScene" uid="uid://uhgo67xenpbn" path="res://levels/lmart/items/item_clothes_hanging.tscn" id="1_1tdpp"]
 [ext_resource type="PackedScene" uid="uid://br1d3gfb7o60v" path="res://levels/lmart/items/item_gumball.tscn" id="1_pw68p"]
 [ext_resource type="PackedScene" uid="uid://dkgsfus4jykuh" path="res://levels/lmart/items/item_dogfood.tscn" id="2_pb80x"]
 [ext_resource type="PackedScene" uid="uid://dxufhfej0u6si" path="res://levels/lmart/items/item_lamp.tscn" id="2_pmwtk"]
 [ext_resource type="PackedScene" uid="uid://suq2nuqt860t" path="res://levels/lmart/items/item_soccer.tscn" id="3_1tdpp"]
 [ext_resource type="PackedScene" uid="uid://dln1n4lu82khs" path="res://levels/lmart/items/item_banana.tscn" id="4_hbtxk"]
+[ext_resource type="PackedScene" uid="uid://dqgj58o7wky0y" path="res://levels/lmart/items/item_balls.tscn" id="5_hbtxk"]
 [ext_resource type="PackedScene" uid="uid://char3ivlcjuu4" path="res://levels/lmart/items/item_blanket.tscn" id="5_ihbpy"]
+[ext_resource type="PackedScene" uid="uid://rkr2r6pb32n" path="res://levels/lmart/items/base_item.tscn" id="5_l55ru"]
 [ext_resource type="PackedScene" uid="uid://bubyxo3mom16n" path="res://levels/lmart/items/item_box.tscn" id="6_l55ru"]
 [ext_resource type="PackedScene" uid="uid://c17yxq4aegwfu" path="res://levels/lmart/items/item_chips.tscn" id="7_ygkdj"]
 [ext_resource type="PackedScene" uid="uid://deghsiptpc01e" path="res://levels/lmart/items/item_clothes.tscn" id="8_nign4"]
 [ext_resource type="PackedScene" uid="uid://bkndppdty6uia" path="res://levels/lmart/items/item_games.tscn" id="10_0g6ki"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mj7s"]
+
+[sub_resource type="PackedScene" id="PackedScene_ygkdj"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("BaseItem", "frame_after_steal", "ClickZone", "offset_left", "offset_top", "offset_right", "offset_bottom", "Icon", "material", "position", "frame"),
+"node_count": 3,
+"node_ids": PackedInt32Array(1436104109, 1402433468, 1914809004),
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 4, 3, 2, 4, 3, 5, 4, 6, 5, 0, 1073741825, -1, 2147483647, 524295, -1, 3, 8, 6, 9, 7, 10, 8, 0),
+"variants": [ExtResource("5_l55ru"), 15, -95.0, -59.0, 494.0, 301.0, SubResource("ShaderMaterial_5mj7s"), Vector2(200, 100), 14],
+"version": 3
+}
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pw68p"]
+scenes/1/scene = ExtResource("1_1tdpp")
+scenes/2/scene = ExtResource("5_hbtxk")
 scenes/3/scene = ExtResource("4_hbtxk")
 scenes/4/scene = ExtResource("5_ihbpy")
 scenes/5/scene = ExtResource("6_l55ru")
@@ -22,6 +45,7 @@ scenes/9/scene = ExtResource("10_0g6ki")
 scenes/10/scene = ExtResource("1_pw68p")
 scenes/11/scene = ExtResource("2_pmwtk")
 scenes/12/scene = ExtResource("3_1tdpp")
+scenes/13/scene = SubResource("PackedScene_ygkdj")
 
 [resource]
 tile_size = Vector2i(200, 200)

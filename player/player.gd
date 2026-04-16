@@ -1,10 +1,20 @@
 class_name Player
 extends CharacterBody2D
 
+enum FACING {
+	UP, DOWN, RIGHT, LEFT
+}
+
+@export var facing_direction: FACING
+
 const SPEED = 800.0
 var followed: bool = false
-var dir := 2
+var dir: FACING = FACING.RIGHT
 var items_being_stolen: Array[Node2D]
+
+func _ready() -> void:
+	dir = facing_direction
+	set_run_anim()
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -23,13 +33,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
 	if dir_y < 0:
-		dir = 0
+		dir = FACING.UP
 	elif dir_y > 0:
-		dir = 1
+		dir = FACING.DOWN
 	elif dir_x > 0:
-		dir = 2
+		dir = FACING.RIGHT
 	elif dir_x < 0:
-		dir = 3
+		dir = FACING.LEFT
 
 	if dir_x or dir_y:
 		set_run_anim()
@@ -40,16 +50,16 @@ func _physics_process(delta: float) -> void:
 
 func set_run_anim():
 	match dir:
-		0:
+		FACING.UP:
 			%Sprite.animation = &"run_up"
 			%Sprite.flip_h = false
-		1:
+		FACING.DOWN:
 			%Sprite.animation = &"run_down"
 			%Sprite.flip_h = false
-		2:
+		FACING.RIGHT:
 			%Sprite.animation = &"run_side"
 			%Sprite.flip_h = false
-		3:
+		FACING.LEFT:
 			%Sprite.animation = &"run_side"
 			%Sprite.flip_h = true
 

@@ -17,7 +17,7 @@ func _ready() -> void:
 	material.shader = outline_shader
 	material.set_shader_parameter("outline_thickness", 0.0)
 	material.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
-	%Icon.material = material
+	%Viewport.material = material
 	
 	steal_timer = Timer.new()
 	steal_timer.autostart = false
@@ -57,10 +57,10 @@ func steal_completed():
 	if player != null: spawn_steal_animation(player)
 	remove_from_player_steal_list()
 	if frame_after_steal < 0:
-		%Icon.hide()
+		%Viewport.hide()
 	else:
 		%Icon.frame = frame_after_steal
-		%StealProgress.hide()
+		%ClickZone.hide()
 
 func spawn_steal_animation(player: Node2D):
 	var fake_item := CollectedItem.new()
@@ -74,32 +74,34 @@ func spawn_steal_animation(player: Node2D):
 	add_child(fake_item)
 
 func show_highlight():
-	var material: ShaderMaterial = %Icon.material
+	var material: ShaderMaterial = %Viewport.material
 	material.set_shader_parameter("outline_thickness", 4.0)
 
 func focus_highlight():
-	var material: ShaderMaterial = %Icon.material
+	var material: ShaderMaterial = %Viewport.material
 	material.set_shader_parameter("outline_color", Vector4(0.2, 0.91, 0.165, 1.0))
 	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_POINTING_HAND
 
 func unfocus_highlight():
-	var material: ShaderMaterial = %Icon.material
+	var material: ShaderMaterial = %Viewport.material
 	material.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
 	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_ARROW
 
 func hide_highlight():
-	var material: ShaderMaterial = %Icon.material
+	var material: ShaderMaterial = %Viewport.material
 	material.set_shader_parameter("outline_thickness", 0.0)
 
 func enter_range():
+	if stolen: return
+	
 	in_range = true
-	var material: ShaderMaterial = %Icon.material
+	var material: ShaderMaterial = %Viewport.material
 	show_highlight()
 	if mouseover: focus_highlight()
 
 func exit_range():
 	in_range = false
-	var material: ShaderMaterial = %Icon.material
+	var material: ShaderMaterial = %Viewport.material
 	hide_highlight()
 
 func exit_steal_cancel_range():

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dqgj58o7wky0y"]
+
+[ext_resource type="PackedScene" uid="uid://rkr2r6pb32n" path="res://levels/lmart/items/base_item.tscn" id="1_5mj7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mj7s"]
+size = Vector2(600, 400)
+
+[node name="BaseItem" unique_id=1436104109 instance=ExtResource("1_5mj7s")]
+frame_after_steal = 15
+
+[node name="SubViewport" parent="Control/Viewport" parent_id_path=PackedInt32Array(412704864) index="0" unique_id=14486145]
+size = Vector2i(600, 400)
+
+[node name="Icon" parent="Control/Viewport/SubViewport" index="0" unique_id=1914809004]
+frame = 14
+
+[node name="ClickZone" parent="Control" parent_id_path=PackedInt32Array(22889281) index="1" unique_id=1402433468]
+offset_right = 600.0
+offset_bottom = 400.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3" unique_id=1799100459]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=2006582043]
+position = Vector2(200, 100)
+shape = SubResource("RectangleShape2D_5mj7s")

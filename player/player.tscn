@@ -153,14 +153,15 @@ animations = [{
 radius = 112.4
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
-radius = 55.0
-height = 128.0
+radius = 40.0
+height = 140.0
 
 [node name="s" type="CharacterBody2D" unique_id=1417231954 groups=["player"]]
 z_index = 1
 z_as_relative = false
 collision_mask = 3
 script = ExtResource("1_rkbax")
+facing_direction = null
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1292402080]
 unique_name_in_owner = true
@@ -177,7 +178,6 @@ shape = SubResource("CircleShape2D_g1dw6")
 debug_color = Color(0.96165186, 0.19863188, 7.70092e-07, 0.41960785)
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1618886121]
-position = Vector2(0, 9)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_oul6g")
 
