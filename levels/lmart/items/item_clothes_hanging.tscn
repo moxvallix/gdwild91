@@ -6,11 +6,7 @@
 steal_time = 4.0
 value = 6
 
-[node name="ClickZone" parent="Control" parent_id_path=PackedInt32Array(22889281) index="0" unique_id=1402433468]
-offset_bottom = 300.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Viewport" parent="Control" parent_id_path=PackedInt32Array(22889281) index="1" unique_id=412704864]
+[node name="Viewport" parent="Control" parent_id_path=PackedInt32Array(22889281) index="0" unique_id=412704864]
 offset_bottom = 400.0
 
 [node name="SubViewport" parent="Control/Viewport" index="0" unique_id=14486145]
@@ -18,3 +14,7 @@ size = Vector2i(200, 300)
 
 [node name="Icon" parent="Control/Viewport/SubViewport" index="0" unique_id=1914809004]
 frame = 13
+
+[node name="ClickZone" parent="Control" parent_id_path=PackedInt32Array(22889281) index="1" unique_id=1402433468]
+offset_bottom = 300.0
+metadata/_edit_use_anchors_ = true

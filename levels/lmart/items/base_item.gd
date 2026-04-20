@@ -13,16 +13,15 @@ var steal_timer: Timer
 var player: Player
 
 func _ready() -> void:
-	var material: ShaderMaterial = ShaderMaterial.new()
-	material.shader = outline_shader
-	material.set_shader_parameter("outline_thickness", 0.0)
-	material.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
-	%Viewport.material = material
+	var mat: ShaderMaterial = ShaderMaterial.new()
+	mat.shader = outline_shader
+	mat.set_shader_parameter("outline_thickness", 0.0)
+	mat.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
+	%Viewport.material = mat
 	
 	steal_timer = Timer.new()
 	steal_timer.autostart = false
 	steal_timer.one_shot = true
-	steal_timer.wait_time = steal_time
 	steal_timer.timeout.connect(steal_completed)
 	
 	add_child(steal_timer)
@@ -41,6 +40,7 @@ func can_steal():
 	return not stolen and not being_stolen() and in_range
 
 func steal() -> void:
+	steal_timer.wait_time = steal_time
 	steal_timer.start()
 	hide_highlight()
 	add_to_player_steal_list()
@@ -74,34 +74,32 @@ func spawn_steal_animation(player: Node2D):
 	add_child(fake_item)
 
 func show_highlight():
-	var material: ShaderMaterial = %Viewport.material
-	material.set_shader_parameter("outline_thickness", 4.0)
+	var mat: ShaderMaterial = %Viewport.material
+	mat.set_shader_parameter("outline_thickness", 4.0)
 
 func focus_highlight():
-	var material: ShaderMaterial = %Viewport.material
-	material.set_shader_parameter("outline_color", Vector4(0.2, 0.91, 0.165, 1.0))
+	var mat: ShaderMaterial = %Viewport.material
+	mat.set_shader_parameter("outline_color", Vector4(0.2, 0.91, 0.165, 1.0))
 	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_POINTING_HAND
 
 func unfocus_highlight():
-	var material: ShaderMaterial = %Viewport.material
-	material.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
+	var mat: ShaderMaterial = %Viewport.material
+	mat.set_shader_parameter("outline_color", Vector4(1.0, 1.0, 1.0, 1.0))
 	%ClickZone.mouse_default_cursor_shape = Input.CURSOR_ARROW
 
 func hide_highlight():
-	var material: ShaderMaterial = %Viewport.material
-	material.set_shader_parameter("outline_thickness", 0.0)
+	var mat: ShaderMaterial = %Viewport.material
+	mat.set_shader_parameter("outline_thickness", 0.0)
 
 func enter_range():
 	if stolen: return
 	
 	in_range = true
-	var material: ShaderMaterial = %Viewport.material
 	show_highlight()
 	if mouseover: focus_highlight()
 
 func exit_range():
 	in_range = false
-	var material: ShaderMaterial = %Viewport.material
 	hide_highlight()
 
 func exit_steal_cancel_range():

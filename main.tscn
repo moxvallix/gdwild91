@@ -25,7 +25,7 @@ script = ExtResource("1_h2yge")
 [node name="Level1" parent="." unique_id=1566324998 instance=ExtResource("3_lquwl")]
 
 [node name="Player" parent="." unique_id=1417231954 instance=ExtResource("1_ig7tw")]
-position = Vector2(4195, 6392)
+position = Vector2(4791, 8916)
 facing_direction = 0
 
 [node name="Timer" type="Timer" parent="." unique_id=156390605]

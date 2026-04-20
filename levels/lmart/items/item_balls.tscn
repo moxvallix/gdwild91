@@ -21,5 +21,6 @@ offset_bottom = 400.0
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="3" unique_id=1799100459]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=2006582043]
+visible = false
 position = Vector2(200, 100)
 shape = SubResource("RectangleShape2D_5mj7s")

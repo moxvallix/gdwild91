@@ -4,5 +4,5 @@
 
 [node name="BaseItem" unique_id=1436104109 instance=ExtResource("1_kfpau")]
 
-[node name="Icon" parent="." index="0" unique_id=1914809004]
+[node name="Icon" parent="Control/Viewport/SubViewport" parent_id_path=PackedInt32Array(14486145) index="0" unique_id=1914809004]
 frame = 9
