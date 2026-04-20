@@ -22,12 +22,13 @@ func _ready() -> void:
 	steal_timer = Timer.new()
 	steal_timer.autostart = false
 	steal_timer.one_shot = true
+	steal_timer.wait_time = steal_time
 	steal_timer.timeout.connect(steal_completed)
 	
 	add_child(steal_timer)
 
 func _process(delta: float) -> void:
-	if not steal_timer.is_stopped():
+	if being_stolen():
 		%StealProgress.visible = true
 		%StealProgress.value = (1 - (steal_timer.time_left / steal_time)) * 100.0
 	else:
@@ -40,10 +41,11 @@ func can_steal():
 	return not stolen and not being_stolen() and in_range
 
 func steal() -> void:
-	steal_timer.wait_time = steal_time
-	steal_timer.start()
-	hide_highlight()
-	add_to_player_steal_list()
+	if add_to_player_steal_list():
+		steal_timer.wait_time = steal_time
+		steal_timer.start()
+		hide_highlight()
+	
 
 func cancel_steal():
 	steal_timer.stop()
@@ -105,18 +107,15 @@ func exit_range():
 func exit_steal_cancel_range():
 	if being_stolen(): cancel_steal()
 
-func add_to_player_steal_list():
-	if not player: return
+func add_to_player_steal_list() -> bool:
+	if not player: return false
 	
-	player.items_being_stolen.push_back(self)
+	return player.steal(self)
 
 func remove_from_player_steal_list():
 	if not player: return
 	
-	var idx = player.items_being_stolen.find(self)
-	if idx < 0: return
-	
-	player.items_being_stolen.remove_at(idx)
+	player.finish_steal(self)
 
 # Signals
 func _on_click_zone_gui_input(event: InputEvent) -> void:

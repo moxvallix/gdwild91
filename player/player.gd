@@ -8,6 +8,8 @@ enum FACING {
 @export var facing_direction: FACING
 
 const SPEED = 800.0
+const MAX_PAW_COUNT = 3
+
 var followed: bool = false
 var dir: FACING = FACING.RIGHT
 var items_being_stolen: Array[Node2D]
@@ -71,6 +73,25 @@ func reload():
 
 func is_stealing() -> bool:
 	return items_being_stolen.size() > 0
+
+func can_steal() -> bool:
+	print(items_being_stolen.size())
+	return items_being_stolen.size() <= MAX_PAW_COUNT
+
+func steal(item: Node2D) -> bool:
+	if not can_steal(): return false
+	
+	items_being_stolen.push_back(item)
+	Stats.set_paw_count(items_being_stolen.size())
+	return true
+
+func finish_steal(item: Node2D):
+		
+	var idx = items_being_stolen.find(item)
+	if idx < 0: return
+	
+	items_being_stolen.remove_at(idx)
+	Stats.set_paw_count(items_being_stolen.size())
 
 func _on_detection_zone_body_entered(body: Node2D) -> void:
 	if followed:

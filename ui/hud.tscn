@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://v3s54xpb72ge"]
 
 [ext_resource type="Script" uid="uid://cv3r2ch1ixyix" path="res://ui/hud.gd" id="1_rbyyf"]
+[ext_resource type="Texture2D" uid="uid://dab0c7piv46yh" path="res://ui/paw.png" id="2_276te"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1432477765]
 script = ExtResource("1_rbyyf")
 
 [node name="Control" type="Control" parent="." unique_id=1284413045]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 2
 
 [node name="Balance" type="Label" parent="Control" unique_id=1429176359]
 unique_name_in_owner = true
@@ -18,3 +27,39 @@ offset_right = 81.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 64
 text = "BALANCE"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1005845550]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -176.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control/MarginContainer" unique_id=1583308544]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+
+[node name="Paw1" type="TextureRect" parent="Control/MarginContainer/HFlowContainer" unique_id=1607632665]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_276te")
+
+[node name="Paw2" type="TextureRect" parent="Control/MarginContainer/HFlowContainer" unique_id=1158611345]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_276te")
+
+[node name="Paw3" type="TextureRect" parent="Control/MarginContainer/HFlowContainer" unique_id=164976932]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_276te")
